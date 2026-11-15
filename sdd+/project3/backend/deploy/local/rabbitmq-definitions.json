@@ -1,0 +1,79 @@
+{
+  "exchanges": [
+    {
+      "name": "checkin-exchange",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "dead-letter-exchange",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "analytics-queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "dead-letter-exchange",
+        "x-dead-letter-routing-key": "failed.analytics"
+      }
+    },
+    {
+      "name": "notification-queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "dead-letter-exchange",
+        "x-dead-letter-routing-key": "failed.notification"
+      }
+    },
+    {
+      "name": "deadletter-queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "checkin-exchange",
+      "vhost": "/",
+      "destination": "analytics-queue",
+      "destination_type": "queue",
+      "routing_keys": ["checkin.event"],
+      "arguments": {}
+    },
+    {
+      "source": "checkin-exchange",
+      "vhost": "/",
+      "destination": "notification-queue",
+      "destination_type": "queue",
+      "routing_keys": ["checkin.event"],
+      "arguments": {}
+    },
+    {
+      "source": "dead-letter-exchange",
+      "vhost": "/",
+      "destination": "deadletter-queue",
+      "destination_type": "queue",
+      "routing_keys": ["#"],
+      "arguments": {}
+    }
+  ],
+  "users": [],
+  "permissions": []
+}

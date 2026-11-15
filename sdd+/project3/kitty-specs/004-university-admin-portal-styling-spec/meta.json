@@ -1,0 +1,28 @@
+{
+  "accept_commit": null,
+  "acceptance_history": [
+    {
+      "accepted_at": "2026-06-08T12:03:23Z",
+      "accepted_by": "opencode",
+      "accepted_from_commit": "992731ac75708f9545db7c7a52ea465cda636221",
+      "branch": "main",
+      "mode": "pr",
+      "validation_commands": [
+        "dotnet test",
+        "npm test"
+      ]
+    }
+  ],
+  "acceptance_mode": "pr",
+  "accepted_at": "2026-06-08T12:03:23Z",
+  "accepted_by": "opencode",
+  "accepted_from_commit": "992731ac75708f9545db7c7a52ea465cda636221",
+  "created_at": "2026-06-05T14:05:04.817282+00:00",
+  "feature_number": "004",
+  "feature_slug": "004-university-admin-portal-styling-spec",
+  "friendly_name": "University Admin Portal Styling Spec",
+  "mission": "software-dev",
+  "slug": "004-university-admin-portal-styling-spec",
+  "target_branch": "main",
+  "vcs": "git"
+}

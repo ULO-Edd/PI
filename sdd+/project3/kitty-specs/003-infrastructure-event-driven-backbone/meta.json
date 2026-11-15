@@ -1,0 +1,25 @@
+{
+  "accept_commit": null,
+  "acceptance_history": [
+    {
+      "accepted_at": "2026-06-02T18:02:42Z",
+      "accepted_by": "opencode",
+      "accepted_from_commit": "3c9cd8e33733bb2373465b5a01c7c8a7725b85d6",
+      "branch": "main",
+      "mode": "pr"
+    }
+  ],
+  "acceptance_mode": "pr",
+  "accepted_at": "2026-06-02T18:02:42Z",
+  "accepted_by": "opencode",
+  "accepted_from_commit": "3c9cd8e33733bb2373465b5a01c7c8a7725b85d6",
+  "created_at": "2026-06-01T13:09:05.467057+00:00",
+  "feature_number": "003",
+  "feature_slug": "003-infrastructure-event-driven-backbone",
+  "friendly_name": "Infrastructure Event-Driven Backbone",
+  "mission": "software-dev",
+  "slug": "003-infrastructure-event-driven-backbone",
+  "source_description": "Decoupled asynchronous messaging bus routing critical domain events, backed by resilient consumer services and Kubernetes deployment configurations.",
+  "target_branch": "main",
+  "vcs": "git"
+}

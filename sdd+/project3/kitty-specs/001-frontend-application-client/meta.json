@@ -1,0 +1,28 @@
+{
+  "accept_commit": null,
+  "acceptance_history": [
+    {
+      "accepted_at": "2026-06-02T17:58:11Z",
+      "accepted_by": "opencode",
+      "accepted_from_commit": "8866e10d5ef2530c1ec3cc8bce0517db93353cb0",
+      "branch": "main",
+      "mode": "pr",
+      "validation_commands": [
+        "npm run test"
+      ]
+    }
+  ],
+  "acceptance_mode": "pr",
+  "accepted_at": "2026-06-02T17:58:11Z",
+  "accepted_by": "opencode",
+  "accepted_from_commit": "8866e10d5ef2530c1ec3cc8bce0517db93353cb0",
+  "created_at": "2026-06-01T12:55:47.205938+00:00",
+  "feature_number": "001",
+  "feature_slug": "001-frontend-application-client",
+  "friendly_name": "Frontend Application Client",
+  "mission": "software-dev",
+  "slug": "001-frontend-application-client",
+  "source_description": "Reactive component-based frontend client with accessible event discovery, organiser administration, and resilient offline-first real-time attendance check-in.",
+  "target_branch": "main",
+  "vcs": "git"
+}

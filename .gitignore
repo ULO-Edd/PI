@@ -1,0 +1,110 @@
+# =====================================================================
+# Single .gitignore for the whole repository. It merges the per-project
+# ignores from vibe/*, sdd/* and sdd+/project1..3.
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# AI agent / tool folders (from the Spec Kitty CLI, auto-managed)
+# ---------------------------------------------------------------------
+.claude/
+.codex/
+.vibe/
+.opencode/
+.windsurf/
+.gemini/
+.cursor/
+.qwen/
+.kilocode/
+.augment/
+.roo/
+.amazonq/
+.kiro/
+.agent/
+**/.github/copilot/
+
+# ---------------------------------------------------------------------
+# Spec Kitty runtime state (specs in kitty-specs/ and charter.md are kept)
+# ---------------------------------------------------------------------
+.worktrees/
+**/.kittify/.dashboard
+**/.kittify/charter/context-state.json
+**/.kittify/charter/directives.yaml
+**/.kittify/charter/governance.yaml
+**/.kittify/charter/metadata.yaml
+**/.kittify/charter/references.yaml
+**/.kittify/dossiers/
+**/.kittify/events/
+**/.kittify/merge-state.json
+**/.kittify/missions/__pycache__/
+**/.kittify/runtime/
+**/.kittify/workspaces/
+exports/
+
+# ---------------------------------------------------------------------
+# Environment / secrets
+# ---------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.local
+
+# ---------------------------------------------------------------------
+# Local databases (SQLite / H2 / Prisma dev DBs are recreated on start)
+# ---------------------------------------------------------------------
+*.db
+*.db-journal
+*.mv.db
+*.trace.db
+
+# ---------------------------------------------------------------------
+# Node / Vite (vibe-project1.2, project2 and project3 frontends)
+# ---------------------------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---------------------------------------------------------------------
+# Go (sdd+/project1, project2 backend)
+# ---------------------------------------------------------------------
+vendor/
+
+# ---------------------------------------------------------------------
+# .NET (sdd+/project3 backend)
+# ---------------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+*.suo
+*.user
+
+# ---------------------------------------------------------------------
+# Java / Maven (vibe-project1.1)
+# ---------------------------------------------------------------------
+target/
+
+# ---------------------------------------------------------------------
+# Python (sdd/Project1.2-app)
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ---------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------
+**/.vscode/*
+!**/.vscode/extensions.json
+.idea/
+*.sw?
+*.ntvs*
+*.njsproj
+.DS_Store
+Thumbs.db

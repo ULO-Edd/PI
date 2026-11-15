@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-06-04T15:13:12.564683+00:00",
+  "friendly_name": "consistent responsive design",
+  "mission_id": "01KT9K445J8JZ9DW60M9H20MVZ",
+  "mission_number": null,
+  "mission_slug": "consistent-responsive-design-01KT9K44",
+  "mission_type": "software-dev",
+  "slug": "consistent-responsive-design-01KT9K44",
+  "target_branch": "feature/sdd-plus-project2",
+  "vcs": "git"
+}

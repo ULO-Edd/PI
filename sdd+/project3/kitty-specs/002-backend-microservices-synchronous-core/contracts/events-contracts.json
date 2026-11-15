@@ -1,0 +1,83 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Events Service Contracts",
+    "version": "1.0.0",
+    "description": "Endpoints managing event catalogs and inventories"
+  },
+  "paths": {
+    "/api/events": {
+      "get": {
+        "summary": "Retrieve public event catalogue",
+        "responses": {
+          "200": {
+            "description": "List of events"
+          }
+        }
+      }
+    },
+    "/api/events/{id}/reserve": {
+      "post": {
+        "summary": "Synchronously validate and deduct ticket capacity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ticketsCount", "correlationId"],
+                "properties": {
+                  "ticketsCount": { "type": "integer", "minimum": 1 },
+                  "correlationId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Capacity reserved successfully" },
+          "400": { "description": "Capacity exhausted" }
+        }
+      }
+    },
+    "/api/events/{id}/release": {
+      "post": {
+        "summary": "Release or rollback capacity",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ticketsCount", "correlationId"],
+                "properties": {
+                  "ticketsCount": { "type": "integer", "minimum": 1 },
+                  "correlationId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Capacity rolled back successfully" }
+        }
+      }
+    }
+  }
+}

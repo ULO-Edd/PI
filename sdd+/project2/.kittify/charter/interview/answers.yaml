@@ -1,0 +1,20 @@
+schema_version: 1.0.0
+mission: software-dev
+profile: comprehensive
+answers:
+  project_intent: "The goal of this project is to extend the event publication, registration, and management REST API (Project 1) into a full web platform. This includes building a browser-based web interface using Vue.js for event organizers to manage events, and for attendees to discover, register for, and track events. Email notifications and richer event metadata are also introduced."
+  languages_frameworks: "golang, vue.js, postgresql, docker, swag for API documentation"
+  testing_requirements: "Minimal unit testing will suffice."
+  quality_gates: "Standard linting and minimal unit testing."
+  review_policy: "No approvals required for pull requests."
+  performance_targets: "Default performance targets."
+  deployment_constraints: "The application will be deployed via Docker."
+  documentation_policy: "API documentation to be generated using swag. Frontend architecture and usage instructions to be documented."
+  risk_boundaries: "Default risk boundaries."
+  amendment_process: "Default amendment process."
+  exception_policy: "Default exception policy."
+selected_paradigms: []
+selected_directives: []
+available_tools:
+  - git
+  - docker

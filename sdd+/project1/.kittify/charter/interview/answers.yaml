@@ -1,0 +1,20 @@
+schema_version: 1.0.0
+mission: software-dev
+profile: comprehensive
+answers:
+  project_intent: "The goal of this project is to consolidate event publication, registration, and management through the creation of a REST API to ESTG / IPLeiria."
+  languages_frameworks: "golang, swag for API documentation, postgresql, docker"
+  testing_requirements: "Unit tests for each endpoint created, covering happy path and error cases. Minimum testing coverage percentage is 70%. We will use the built-in testing package of golang."
+  quality_gates: "golangci-lint"
+  review_policy: "No approvals required for pull requests. The main branch is feature/sdd-plus-project1."
+  performance_targets: "Default performance targets."
+  deployment_constraints: "The application will be deployed via Docker."
+  documentation_policy: "API documentation to be generated using swag."
+  risk_boundaries: "Default risk boundaries."
+  amendment_process: "Default amendment process."
+  exception_policy: "Default exception policy."
+selected_paradigms: []
+selected_directives: []
+available_tools:
+  - git
+  - docker

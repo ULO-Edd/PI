@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dead-letter-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dead-letter-service
+  template:
+    metadata:
+      labels:
+        app: dead-letter-service
+    spec:
+      containers:
+        - name: dead-letter-service
+          image: sdd-dead-letter-service:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: backbone-config
+            - secretRef:
+                name: backbone-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dead-letter-service
+spec:
+  selector:
+    app: dead-letter-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

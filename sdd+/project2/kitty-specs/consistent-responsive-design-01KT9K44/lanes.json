@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "mission_slug": "consistent-responsive-design-01KT9K44",
+  "mission_id": "01KT9K445J8JZ9DW60M9H20MVZ",
+  "mission_branch": "kitty/mission-consistent-responsive-design-01KT9K44",
+  "target_branch": "feature/sdd-plus-project2",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP04",
+        "WP05"
+      ],
+      "write_scope": [
+        "frontend/src/App.vue",
+        "frontend/src/components/attendee/EventCard.vue",
+        "frontend/src/components/organizer/AccessibleTable.vue",
+        "frontend/src/views/admin/AdminDashboardView.vue",
+        "frontend/src/views/admin/CategoryManagementView.vue",
+        "frontend/src/views/admin/GlobalStatsView.vue",
+        "frontend/src/views/admin/OrganizerApprovalView.vue",
+        "frontend/src/views/attendee/DashboardView.vue",
+        "frontend/src/views/attendee/DiscoveryView.vue",
+        "frontend/src/views/attendee/EventDetailView.vue",
+        "frontend/src/views/auth/ForbiddenView.vue",
+        "frontend/src/views/auth/HomeView.vue",
+        "frontend/src/views/auth/LoginView.vue",
+        "frontend/src/views/auth/RegisterView.vue",
+        "frontend/src/views/organizer/EventAttendeesView.vue",
+        "frontend/src/views/organizer/OrganizerDashboardView.vue",
+        "frontend/src/views/organizer/StatsView.vue"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "workspace"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-06-04T15:25:39.546758+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP01"
+      },
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP01"
+      },
+      {
+        "wp_a": "WP05",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP05 depends on WP01"
+      }
+    ],
+    "total_merges": 4,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 4
+    }
+  }
+}

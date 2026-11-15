@@ -1,0 +1,56 @@
+{
+  "event_count": 21,
+  "last_event_id": "01KT9R3ZG06KAY4C97M17BP2Q1",
+  "materialized_at": "2026-06-04T16:40:30.464506+00:00",
+  "mission_number": "",
+  "mission_slug": "consistent-responsive-design-01KT9K44",
+  "mission_type": "software-dev",
+  "summary": {
+    "approved": 0,
+    "blocked": 0,
+    "canceled": 0,
+    "claimed": 0,
+    "done": 0,
+    "for_review": 4,
+    "in_progress": 0,
+    "in_review": 1,
+    "planned": 0
+  },
+  "work_packages": {
+    "WP01": {
+      "actor": "opencode",
+      "force_count": 1,
+      "lane": "in_review",
+      "last_event_id": "01KT9R3ZG06KAY4C97M17BP2Q1",
+      "last_transition_at": "2026-06-04T16:40:30.464506+00:00"
+    },
+    "WP02": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "for_review",
+      "last_event_id": "01KT9R1MG0K9WMZ36PY8NYRANB",
+      "last_transition_at": "2026-06-04T16:39:13.664296+00:00"
+    },
+    "WP03": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "for_review",
+      "last_event_id": "01KT9R1Q3V4PCMXHA6E1NNRPS9",
+      "last_transition_at": "2026-06-04T16:39:16.347365+00:00"
+    },
+    "WP04": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "for_review",
+      "last_event_id": "01KT9R1SR3NX7K0FNV55Y9B454",
+      "last_transition_at": "2026-06-04T16:39:19.043202+00:00"
+    },
+    "WP05": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "for_review",
+      "last_event_id": "01KT9R1WB025SD64NEVBGYFWRT",
+      "last_transition_at": "2026-06-04T16:39:21.696745+00:00"
+    }
+  }
+}

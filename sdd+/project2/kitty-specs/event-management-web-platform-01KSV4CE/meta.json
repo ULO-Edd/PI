@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-05-30T00:26:14.938779+00:00",
+  "friendly_name": "event management web platform",
+  "mission_id": "01KSV4CEVCW81ZS9JHQCXK6ERQ",
+  "mission_number": null,
+  "mission_slug": "event-management-web-platform-01KSV4CE",
+  "mission_type": "software-dev",
+  "slug": "event-management-web-platform-01KSV4CE",
+  "target_branch": "feature/sdd-plus-project2",
+  "vcs": "git",
+  "vcs_locked_at": "2026-05-30T00:34:44.070154+00:00"
+}

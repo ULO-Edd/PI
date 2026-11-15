@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "mission_slug": "fix-event-and-user-registration-core-01KS8SHC",
+  "mission_id": "01KS8SHC2ETY63EWAVDBNA8PP0",
+  "mission_branch": "kitty/mission-fix-event-and-user-registration-core-01KS8SHC",
+  "target_branch": "feature/sdd-plus-project1",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP04"
+      ],
+      "write_scope": [
+        "db/migrations/**",
+        "internal/api/handlers/event_handler.go",
+        "internal/api/handlers/registration_handler.go",
+        "internal/api/handlers/user_handler.go",
+        "internal/api/router.go",
+        "internal/domain/event/**",
+        "internal/domain/registration/**",
+        "internal/domain/user/**"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "legacy-cleanup",
+        "tests",
+        "workspace"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-22T21:38:50.497831+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP02"
+      },
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP03",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP03"
+      }
+    ],
+    "total_merges": 3,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 3
+    }
+  }
+}

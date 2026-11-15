@@ -1,0 +1,250 @@
+basePath: /
+definitions:
+  event.Event:
+    properties:
+      capacity:
+        type: integer
+      created_at:
+        type: string
+      description:
+        type: string
+      end_time:
+        type: string
+      id:
+        type: string
+      location:
+        type: string
+      organiser_id:
+        type: string
+      start_time:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+    type: object
+  handlers.CreateEventRequest:
+    properties:
+      capacity:
+        type: integer
+      description:
+        type: string
+      end_time:
+        type: string
+      location:
+        type: string
+      start_time:
+        type: string
+      title:
+        type: string
+    type: object
+  handlers.LoginRequest:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  handlers.LoginResponse:
+    properties:
+      token:
+        type: string
+    type: object
+  handlers.RegisterRequest:
+    properties:
+      password:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    type: object
+  handlers.UpdateEventRequest:
+    properties:
+      capacity:
+        type: integer
+      description:
+        type: string
+      end_time:
+        type: string
+      location:
+        type: string
+      start_time:
+        type: string
+      status:
+        type: string
+      title:
+        type: string
+    type: object
+  user.User:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      role:
+        type: string
+      username:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for an event management system.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Event Management API
+  version: "1.0"
+paths:
+  /events:
+    get:
+      description: Get a list of all events.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/event.Event'
+            type: array
+      summary: Get all events
+      tags:
+      - events
+    post:
+      consumes:
+      - application/json
+      description: Create a new event (requires organiser or admin role).
+      parameters:
+      - description: Event info
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.CreateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/event.Event'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new event
+      tags:
+      - events
+  /events/{eventId}:
+    delete:
+      description: Delete an event. Requires organiser or admin role. User must own
+        the event.
+      parameters:
+      - description: Event ID
+        in: path
+        name: eventId
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+      security:
+      - ApiKeyAuth: []
+      summary: Delete an event
+      tags:
+      - events
+    get:
+      description: Get a single event by its ID.
+      parameters:
+      - description: Event ID
+        in: path
+        name: eventId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/event.Event'
+      summary: Get a single event by its ID
+      tags:
+      - events
+    put:
+      consumes:
+      - application/json
+      description: Update an existing event. Requires organiser or admin role. User
+        must own the event.
+      parameters:
+      - description: Event ID
+        in: path
+        name: eventId
+        required: true
+        type: string
+      - description: Event info
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.UpdateEventRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/event.Event'
+      security:
+      - ApiKeyAuth: []
+      summary: Update an existing event
+      tags:
+      - events
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Log in a user with username and password to receive a JWT.
+      parameters:
+      - description: User Login
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.LoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/handlers.LoginResponse'
+      summary: Log in a user
+      tags:
+      - users
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with a username, password, and role.
+      parameters:
+      - description: User Registration
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.RegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/user.User'
+      summary: Register a new user
+      tags:
+      - users
+swagger: "2.0"

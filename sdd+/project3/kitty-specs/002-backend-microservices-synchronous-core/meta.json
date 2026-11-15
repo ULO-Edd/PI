@@ -1,0 +1,28 @@
+{
+  "accept_commit": null,
+  "acceptance_history": [
+    {
+      "accepted_at": "2026-06-02T18:00:53Z",
+      "accepted_by": "opencode",
+      "accepted_from_commit": "548b2cba0bf1419c4cff2da5fdda1d21033b3458",
+      "branch": "main",
+      "mode": "pr",
+      "validation_commands": [
+        "dotnet test"
+      ]
+    }
+  ],
+  "acceptance_mode": "pr",
+  "accepted_at": "2026-06-02T18:00:53Z",
+  "accepted_by": "opencode",
+  "accepted_from_commit": "548b2cba0bf1419c4cff2da5fdda1d21033b3458",
+  "created_at": "2026-06-01T13:04:30.638390+00:00",
+  "feature_number": "002",
+  "feature_slug": "002-backend-microservices-synchronous-core",
+  "friendly_name": "Backend Microservices Synchronous Core",
+  "mission": "software-dev",
+  "slug": "002-backend-microservices-synchronous-core",
+  "source_description": "High-performance, strictly typed RESTful ASP.NET Core (.NET 10) ecosystem processing synchronous HTTP requests and housing the core domain logic with isolated databases.",
+  "target_branch": "main",
+  "vcs": "git"
+}

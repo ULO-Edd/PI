@@ -1,0 +1,11 @@
+{
+  "feature_number": "001",
+  "slug": "001-event-management-restful-api",
+  "feature_slug": "001-event-management-restful-api",
+  "friendly_name": "Event Management RESTful API",
+  "mission": "software-dev",
+  "source_description": "Build a RESTful API that exposes endpoints to manage events at ESTG / IPLeiria. The team must produce a working backend service with persistent storage and basic authentication. There is no user interface — the API is consumed via HTTP clients (curl, Postman, automated tests).",
+  "target_branch": "feature/vibe-project1.2-sdd-approach",
+  "created_at": "2026-05-13T10:40:10.485541+00:00",
+  "vcs": "git"
+}

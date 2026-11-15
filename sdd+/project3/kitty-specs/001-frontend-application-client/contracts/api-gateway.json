@@ -1,0 +1,120 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Gateway Frontend Client Contracts",
+    "version": "1.0.0",
+    "description": "JSON schema endpoints consumed by the Frontend Application Client"
+  },
+  "paths": {
+    "/api/events": {
+      "get": {
+        "summary": "Retrieve public event catalogue",
+        "responses": {
+          "200": {
+            "description": "List of upcoming events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/organiser/events": {
+      "post": {
+        "summary": "Create event",
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEventInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Event created successfully"
+          }
+        }
+      }
+    },
+    "/api/registrations/sync": {
+      "post": {
+        "summary": "Synchronize locally queued offline scans",
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OfflineScanSyncInput"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Synchronization complete and processed"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "dateTime": { "type": "string", "format": "date-time" },
+          "location": { "type": "string" },
+          "capacity": { "type": "integer" },
+          "availableTickets": { "type": "integer" }
+        }
+      },
+      "CreateEventInput": {
+        "type": "object",
+        "required": ["title", "dateTime", "capacity"],
+        "properties": {
+          "title": { "type": "string", "maxLength": 100 },
+          "description": { "type": "string" },
+          "dateTime": { "type": "string", "format": "date-time" },
+          "location": { "type": "string" },
+          "capacity": { "type": "integer", "minimum": 1 }
+        }
+      },
+      "OfflineScanSyncInput": {
+        "type": "object",
+        "required": ["eventId", "attendeeId", "scannedAt", "correlationId"],
+        "properties": {
+          "eventId": { "type": "string", "format": "uuid" },
+          "attendeeId": { "type": "string", "format": "uuid" },
+          "scannedAt": { "type": "string", "format": "date-time" },
+          "correlationId": { "type": "string" }
+        }
+      }
+    }
+  }
+}

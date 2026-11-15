@@ -1,0 +1,9 @@
+ALTER TABLE registrations DROP COLUMN IF EXISTS status;
+ALTER TABLE registrations DROP COLUMN IF EXISTS updated_at;
+
+ALTER TABLE events DROP COLUMN IF EXISTS category_id;
+ALTER TABLE events DROP COLUMN IF EXISTS contact_email;
+
+ALTER TABLE users DROP COLUMN IF EXISTS status;
+
+DROP TABLE IF EXISTS categories;

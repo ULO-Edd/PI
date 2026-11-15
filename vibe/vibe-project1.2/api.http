@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:3000
+
+### Register a new user
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123",
+  "role": "ATTENDEE"
+}
+
+### Login a user
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Create a new event
+POST {{baseUrl}}/events
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "New Event",
+  "description": "A new event",
+  "location": "Event Location",
+  "startTime": "2024-01-01T10:00:00Z",
+  "endTime": "2024-01-01T12:00:00Z",
+  "capacity": 100,
+  "status": "PUBLISHED"
+}
+
+### Get all events
+GET {{baseUrl}}/events
+
+### Get event by id
+GET {{baseUrl}}/events/1
+
+### Update an event
+PATCH {{baseUrl}}/events/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Updated Event Title"
+}
+
+### Delete an event
+DELETE {{baseUrl}}/events/1
+Authorization: Bearer {{token}}
+
+### Register for an event
+POST {{baseUrl}}/events/1/register
+Authorization: Bearer {{token}}
+
+### Unregister from an event
+DELETE {{baseUrl}}/events/1/unregister
+Authorization: Bearer {{token}}

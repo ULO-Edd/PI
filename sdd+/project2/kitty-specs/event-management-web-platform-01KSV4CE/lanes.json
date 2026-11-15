@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "mission_slug": "event-management-web-platform-01KSV4CE",
+  "mission_id": "01KSV4CEVCW81ZS9JHQCXK6ERQ",
+  "mission_branch": "kitty/mission-event-management-web-platform-01KSV4CE",
+  "target_branch": "feature/sdd-plus-project2",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP03",
+        "WP04",
+        "WP05"
+      ],
+      "write_scope": [
+        "backend/Dockerfile",
+        "backend/cmd/**",
+        "backend/db/migrations/**",
+        "backend/go.mod",
+        "backend/go.sum",
+        "backend/internal/auth/**",
+        "backend/internal/email/**",
+        "backend/internal/events/**",
+        "backend/internal/models/**",
+        "docker-compose.yml"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "tests",
+        "tracker-integration"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    },
+    {
+      "lane_id": "lane-b",
+      "wp_ids": [
+        "WP06",
+        "WP07",
+        "WP08",
+        "WP09",
+        "WP10"
+      ],
+      "write_scope": [
+        "frontend/Dockerfile",
+        "frontend/package.json",
+        "frontend/src/App.vue",
+        "frontend/src/assets/**",
+        "frontend/src/components/admin/**",
+        "frontend/src/components/attendee/**",
+        "frontend/src/components/auth/**",
+        "frontend/src/components/organizer/**",
+        "frontend/src/main.js",
+        "frontend/src/router/**",
+        "frontend/src/store/**",
+        "frontend/src/views/admin/**",
+        "frontend/src/views/attendee/**",
+        "frontend/src/views/auth/**",
+        "frontend/src/views/organizer/**",
+        "frontend/tailwind.config.js"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell",
+        "artifact-rendering",
+        "dashboard",
+        "tracker-integration",
+        "workspace"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-30T00:33:05.895582+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP03",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP03 depends on WP02"
+      },
+      {
+        "wp_a": "WP04",
+        "wp_b": "WP03",
+        "rule": "dependency",
+        "evidence": "WP04 depends on WP03"
+      },
+      {
+        "wp_a": "WP05",
+        "wp_b": "WP04",
+        "rule": "dependency",
+        "evidence": "WP05 depends on WP04"
+      },
+      {
+        "wp_a": "WP07",
+        "wp_b": "WP06",
+        "rule": "dependency",
+        "evidence": "WP07 depends on WP06"
+      },
+      {
+        "wp_a": "WP08",
+        "wp_b": "WP07",
+        "rule": "dependency",
+        "evidence": "WP08 depends on WP07"
+      },
+      {
+        "wp_a": "WP09",
+        "wp_b": "WP08",
+        "rule": "dependency",
+        "evidence": "WP09 depends on WP08"
+      },
+      {
+        "wp_a": "WP10",
+        "wp_b": "WP09",
+        "rule": "dependency",
+        "evidence": "WP10 depends on WP09"
+      }
+    ],
+    "total_merges": 8,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 8
+    }
+  }
+}

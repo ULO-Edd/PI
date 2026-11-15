@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "mission_slug": "event-management-rest-api-foundations-01KRSJ9H",
+  "mission_id": "01KRSJ9HEM13RHANKZWSV5CMQK",
+  "mission_branch": "kitty/mission-event-management-rest-api-foundations-01KRSJ9H",
+  "target_branch": "feature/sdd-plus-project1",
+  "lanes": [
+    {
+      "lane_id": "lane-a",
+      "wp_ids": [
+        "WP01",
+        "WP02",
+        "WP07"
+      ],
+      "write_scope": [
+        "Dockerfile",
+        "cmd/api/main.go",
+        "db/migrations/",
+        "docker-compose.yml",
+        "go.mod",
+        "go.sum",
+        "internal/config/",
+        "internal/domain/event/event.go",
+        "internal/domain/event/service_test.go",
+        "internal/domain/registration/registration.go",
+        "internal/domain/registration/service_test.go",
+        "internal/domain/user/service_test.go",
+        "internal/domain/user/user.go",
+        "internal/platform/database/"
+      ],
+      "predicted_surfaces": [
+        "api",
+        "app-shell"
+      ],
+      "depends_on_lanes": [],
+      "parallel_group": 0
+    }
+  ],
+  "computed_at": "2026-05-22T13:26:21.301841+00:00",
+  "computed_from": "dependency_graph+ownership",
+  "planning_artifact_wps": [],
+  "collapse_report": {
+    "events": [
+      {
+        "wp_a": "WP02",
+        "wp_b": "WP01",
+        "rule": "dependency",
+        "evidence": "WP02 depends on WP01"
+      },
+      {
+        "wp_a": "WP07",
+        "wp_b": "WP02",
+        "rule": "dependency",
+        "evidence": "WP07 depends on WP02"
+      }
+    ],
+    "total_merges": 2,
+    "independent_wps_collapsed": 0,
+    "by_rule": {
+      "dependency": 2
+    }
+  }
+}

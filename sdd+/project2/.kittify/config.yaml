@@ -1,0 +1,11 @@
+vcs:
+  type: git
+agents:
+  available:
+  - opencode
+  auto_commit: true
+project:
+  uuid: cf4fdd8d-131c-49d3-a17f-701a4a9d9273
+  slug: sdd-m2
+  node_id: 7fbadd44e5d7
+  build_id: fc6b01e8-eb18-4c29-9d88-223614df51c7

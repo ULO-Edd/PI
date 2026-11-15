@@ -1,0 +1,35 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Registrations Service Contracts",
+    "version": "1.0.0",
+    "description": "Endpoints managing ticket booking transactions"
+  },
+  "paths": {
+    "/api/registrations/book": {
+      "post": {
+        "summary": "Request ticket booking and trigger inter-service validation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["eventId", "attendeeId", "correlationId"],
+                "properties": {
+                  "eventId": { "type": "string", "format": "uuid" },
+                  "attendeeId": { "type": "string", "format": "uuid" },
+                  "correlationId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Ticket booked and transaction confirmed" },
+          "400": { "description": "Transaction failed or capacity exhausted" }
+        }
+      }
+    }
+  }
+}

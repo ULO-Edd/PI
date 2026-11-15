@@ -1,0 +1,208 @@
+# API Endpoints Specification: Event Management Web Platform
+*Path: [kitty-specs/event-management-web-platform-01KSV4CE/contracts/endpoints.yaml](contracts/endpoints.yaml)*
+
+openapi: 3.0.3
+info:
+  title: Event Management API
+  version: 2.0.0
+  description: Multi-role API supporting Attendees, Organizers, and Administrators.
+
+paths:
+  # --- Authentication & Registration ---
+  /api/auth/register:
+    post:
+      summary: Register a new user
+      description: Open endpoint for attendees and organizers to register. Organizers are created with "Pending" status.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, password, role]
+              properties:
+                name: { type: string }
+                email: { type: string, format: email }
+                password: { type: string, minLength: 8 }
+                role: { type: string, enum: [Attendee, Organizer] }
+      responses:
+        201: { description: User created successfully. }
+        400: { description: Invalid inputs or user already exists. }
+
+  /api/auth/login:
+    post:
+      summary: Authenticate user and retrieve token
+      description: Validates login credentials and issues JWT token containing role and status.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+      responses:
+        200:
+          description: Successful authentication.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token: { type: string }
+                  role: { type: string }
+                  status: { type: string }
+        401: { description: Invalid credentials or account suspended. }
+
+  # --- Organizer Approvals (Admin-only) ---
+  /api/admin/organizers:
+    get:
+      summary: List pending and active organizers
+      security: [BearerAuth: []]
+      responses:
+        200:
+          description: List of organizers returned successfully.
+  /api/admin/organizers/{id}/status:
+    put:
+      summary: Update organizer account status (Approve/Suspend)
+      security: [BearerAuth: []]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { type: string, enum: [Approved, Suspended] }
+      responses:
+        200: { description: Status updated. }
+
+  # --- Categories (Admin/Organizer) ---
+  /api/categories:
+    get:
+      summary: List all event categories (All Roles)
+      responses:
+        200: { description: Categories list. }
+    post:
+      summary: Create event category (Admin-only)
+      security: [BearerAuth: []]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, description]
+              properties:
+                name: { type: string }
+                description: { type: string }
+      responses:
+        201: { description: Category created. }
+
+  # --- Events Lifecycle (Multi-role) ---
+  /api/events:
+    get:
+      summary: Query and search published events (Public/Attendee)
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema: { type: string }
+        - name: search
+          in: query
+          required: false
+          schema: { type: string }
+      responses:
+        200: { description: List of filtered events. }
+    post:
+      summary: Create an event (Approved Organizers only)
+      security: [BearerAuth: []]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, description, category_id, max_capacity, start_time, end_time, location, contact_email]
+              properties:
+                title: { type: string }
+                description: { type: string }
+                category_id: { type: string, format: uuid }
+                max_capacity: { type: integer }
+                start_time: { type: string, format: date-time }
+                end_time: { type: string, format: date-time }
+                location: { type: string }
+                contact_email: { type: string, format: email }
+      responses:
+        201: { description: Event draft/published successfully. }
+
+  /api/events/{id}/cancel:
+    put:
+      summary: Cancel an event (Owner Organizer only)
+      security: [BearerAuth: []]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        200: { description: Event cancelled, email triggers fired to attendees. }
+
+  # --- Registrations & Attendance ---
+  /api/events/{id}/register:
+    post:
+      summary: Register for an event (Attendee-only)
+      security: [BearerAuth: []]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        201: { description: Registered successfully. Trigger confirmation email. }
+        400: { description: Event capacity full or already registered. }
+
+  /api/events/{id}/attendees:
+    get:
+      summary: Get registration list of attendees (Owner Organizer only)
+      security: [BearerAuth: []]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        200: { description: Roster list retrieved successfully. }
+
+  /api/events/{id}/attendees/{attendee_id}/presence:
+    put:
+      summary: Mark attendee presence (Owner Organizer only)
+      security: [BearerAuth: []]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: attendee_id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { type: string, enum: [Present, No-Show, Registered] }
+      responses:
+        200: { description: Presence status updated. }

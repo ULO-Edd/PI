@@ -1,0 +1,25 @@
+{
+  "mission_slug": "event-management-rest-api-foundations-01KRSJ9H",
+  "mission_type": "software-dev",
+  "criteria": [
+    {
+      "criterion_id": "CRIT-001",
+      "description": "Initialize Go project, configuration, and Docker structure",
+      "proof_type": "automated_test",
+      "pass_fail": "pass"
+    },
+    {
+      "criterion_id": "CRIT-002",
+      "description": "Establish database connection, migration scripts, and User/Event/Registration domain models",
+      "proof_type": "automated_test",
+      "pass_fail": "pass"
+    },
+    {
+      "criterion_id": "CRIT-003",
+      "description": "Verify all User, Event, and Registration service unit tests pass with at least 70% coverage",
+      "proof_type": "automated_test",
+      "pass_fail": "pass"
+    }
+  ],
+  "negative_invariants": []
+}

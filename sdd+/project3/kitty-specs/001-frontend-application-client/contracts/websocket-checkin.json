@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WebSocket Check-In Schema Contract",
+  "description": "Contracts for live server-to-client events and client-to-server check-in actions over WebSockets",
+  "definitions": {
+    "SubscribeCheckInEvents": {
+      "type": "object",
+      "required": ["action", "eventId"],
+      "properties": {
+        "action": { "type": "string", "enum": ["subscribe"] },
+        "eventId": { "type": "string", "format": "uuid" }
+      }
+    },
+    "CheckInBroadcastEvent": {
+      "type": "object",
+      "required": ["event", "eventId", "attendeeId", "scannedAt", "correlationId", "syncStatus"],
+      "properties": {
+        "event": { "type": "string", "enum": ["attendee_checked_in"] },
+        "eventId": { "type": "string", "format": "uuid" },
+        "attendeeId": { "type": "string", "format": "uuid" },
+        "scannedAt": { "type": "string", "format": "date-time" },
+        "correlationId": { "type": "string" },
+        "syncStatus": { "type": "string", "enum": ["CheckedIn"] }
+      }
+    }
+  }
+}

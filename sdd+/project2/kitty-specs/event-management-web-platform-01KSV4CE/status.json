@@ -1,0 +1,91 @@
+{
+  "event_count": 60,
+  "last_event_id": "01KSZYHXW02ZT236EJZB5FQK6H",
+  "materialized_at": "2026-05-31T21:20:34.688564+00:00",
+  "mission_number": "",
+  "mission_slug": "event-management-web-platform-01KSV4CE",
+  "mission_type": "software-dev",
+  "summary": {
+    "approved": 10,
+    "blocked": 0,
+    "canceled": 0,
+    "claimed": 0,
+    "done": 0,
+    "for_review": 0,
+    "in_progress": 0,
+    "in_review": 0,
+    "planned": 0
+  },
+  "work_packages": {
+    "WP01": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSV53DFANT9VAQ5MJZQZ8N10",
+      "last_transition_at": "2026-05-30T00:38:47.018135+00:00"
+    },
+    "WP02": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSV5JNA46XPQD05FJES0FJPR",
+      "last_transition_at": "2026-05-30T00:47:06.564341+00:00"
+    },
+    "WP03": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSXAWSQETD5JXNNN8NRMSATK",
+      "last_transition_at": "2026-05-30T20:58:30.510016+00:00"
+    },
+    "WP04": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSXB8TZHK60HAKP5NSQZE4RQ",
+      "last_transition_at": "2026-05-30T21:05:05.009780+00:00"
+    },
+    "WP05": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSXBF9QZHT8RMQSTT27NNN93",
+      "last_transition_at": "2026-05-30T21:08:36.735386+00:00"
+    },
+    "WP06": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSYRVJ714H7ZAC6KVARPYK2V",
+      "last_transition_at": "2026-05-31T10:21:44.545716+00:00"
+    },
+    "WP07": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSYS4ZKR2P83T1HKX0QJD3CB",
+      "last_transition_at": "2026-05-31T10:26:53.176788+00:00"
+    },
+    "WP08": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSYSJH7F9XNXQECRTY12NBT2",
+      "last_transition_at": "2026-05-31T10:34:17.199876+00:00"
+    },
+    "WP09": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSZYAXQNWA1PFM38T5DCSVA9",
+      "last_transition_at": "2026-05-31T21:16:45.173453+00:00"
+    },
+    "WP10": {
+      "actor": "user",
+      "force_count": 1,
+      "lane": "approved",
+      "last_event_id": "01KSZYHXW02ZT236EJZB5FQK6H",
+      "last_transition_at": "2026-05-31T21:20:34.688564+00:00"
+    }
+  }
+}
